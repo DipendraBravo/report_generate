@@ -18,6 +18,10 @@ class Profile(models.Model):
 
 
 @receiver(post_save, sender=User)
+
+
 def post_create_profile(sender, instance, created, **kwargs):
+
+
     if created:
         Profile.objects.create(user=instance)
